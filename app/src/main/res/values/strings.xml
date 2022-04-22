@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Currency_check</string>
+    <string name="TitleText">Currency Check</string>
+    <string name="UpdateButton">Update</string>
+</resources>
