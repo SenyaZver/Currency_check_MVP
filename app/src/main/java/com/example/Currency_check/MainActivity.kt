@@ -43,8 +43,9 @@ class MainActivity : AppCompatActivity(), Contact.View {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
 
-        presenter = CurrencyPresenter(CurrencyModel(), recyclerView)
-        presenter.attachView(this)
+        presenter = (application as MVPapp).presenter
+
+        presenter.attachView(this, recyclerView)
     }
 
 

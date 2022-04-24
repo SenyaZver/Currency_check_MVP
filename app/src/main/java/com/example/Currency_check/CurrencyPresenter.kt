@@ -6,13 +6,11 @@ import com.example.Currency_check.Common.Contact
 import com.example.Currency_check.Common.RecyclerViewAdapter
 
 
-class CurrencyPresenter(override var model: Contact.Model, var recyclerView: RecyclerView) : Contact.Presenter {
+class CurrencyPresenter(override var model: Contact.Model) : Contact.Presenter {
 
     private var view: Contact.View? = null
 
-    init {
-        recyclerView.adapter = RecyclerViewAdapter(model.presentData())
-    }
+    lateinit var recyclerView: RecyclerView
 
 
 
@@ -23,8 +21,10 @@ class CurrencyPresenter(override var model: Contact.Model, var recyclerView: Rec
     }
 
 
-    override fun attachView(view: Contact.View) {
+    override fun attachView(view: Contact.View, recyclerView: RecyclerView) {
         this.view = view
+        this.recyclerView = recyclerView
+        recyclerView.adapter = RecyclerViewAdapter(model.presentData())
     }
 
     override fun detachView() {
